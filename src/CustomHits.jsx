@@ -21,15 +21,15 @@ const CustomHits = () => {
           mabayaAdsIntegratedItems.forEach(({ objectID }) => adSkus.push(objectID))
         }
 
-        // First we deduplicate the itmes list
+        // Deduplicate items from main search results
         const deduplicatedItems = items.filter(({ objectID }) => !adSkus.includes(objectID))
 
-        // We add in the integrated search items now according to business logic
+        // Use whatever logic is required to combine the search results and the integrated mabaya ads
         const mabayaAdsIntegratedItemsWithTag = mabayaAdsIntegratedItems.map((item) => ({...item, sponsored: true}))
         const deduplicatedItemsWithTag = deduplicatedItems.map((item) => ({...item, sponsored: false}))
         const integratedSearchResults = [...mabayaAdsIntegratedItemsWithTag, ...deduplicatedItemsWithTag]
 
- 
+        // Set both the combined results and mabaya header ads on state for rendering
         setResults(integratedSearchResults)
         setHeaderWidget(mabayaAdsHeaderItems)
       }
