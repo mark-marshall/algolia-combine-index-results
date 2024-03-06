@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useInstantSearch, Snippet, Hits } from "react-instantsearch";
+import { useInstantSearch } from "react-instantsearch";
 
 const CustomHits = () => {
   const { scopedResults } = useInstantSearch();
